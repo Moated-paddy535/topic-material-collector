@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+clips/
+full/
+images/
+metadata/
+subtitles/
+thumbnails/
+material-manifest.*
+

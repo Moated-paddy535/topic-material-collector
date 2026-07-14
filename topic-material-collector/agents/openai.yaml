@@ -1,0 +1,4 @@
+interface:
+  display_name: "选题素材收集器"
+  short_description: "按选题全网检索视频素材、定位时间段、自动下载裁剪并生成清单"
+  default_prompt: "Use $topic-material-collector to find, timestamp, download, rename, and catalog video-first materials for my topic."
